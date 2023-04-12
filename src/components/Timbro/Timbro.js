@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import Table from 'react-bootstrap/Table';
+import Button from 'react-bootstrap/Button';
 import '../../css/timbro.css'
 
 const Modal = ({ handleClose, show, children }) => {
@@ -18,7 +20,7 @@ const Timbro = () => {
   const [showModal, setShowModal] = useState(false);
 
   const fetchTimbri = async () => {
-    const response = await fetch("urljson");
+    const response = await fetch("#");
     const dataJson = await response.json();
     setTimbri(dataJson.users);
   };
@@ -37,11 +39,11 @@ const Timbro = () => {
 
   return (
     <div>
-      <button onClick={handleOpenModal}>Nuovo</button>
+      <Button onClick={handleOpenModal} style={{margin: "10px"}}>Nuovo</Button>
       {timbri.map((timbro, index) => (
         <div>Il tuo ID: {timbro.id}</div>
       ))}
-      <table>
+      <Table striped bordered hover>
         <thead>
           <tr>
             <th>Data</th>
@@ -58,10 +60,10 @@ const Timbro = () => {
             </tr>
           ))}
         </tbody>
-      </table>
+      </Table>
       <Modal show={showModal} handleClose={handleCloseModal}>
         <h2>Timbratura</h2>
-        <p>Contenuto del Modale</p>
+        <p>Contenuto...</p>
       </Modal>
     </div>
   );

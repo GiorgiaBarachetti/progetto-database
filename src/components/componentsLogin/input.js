@@ -12,7 +12,7 @@ const Input = ({ label, error, ...rest }) => {
                 style={{
                     padding: '10px',
                     border: '1px solid lightblue',
-                    
+                    borderRadius: '5px'
                 }}
                 {...rest}
                 />

@@ -1,12 +1,13 @@
-.button {
+.box {
         background-color: 'white';
         color: 'lightblue';
         font-weight: 'bold';
         margin-top: '25px';
         border: 'none';
-        padding: '10px'; 
+        padding: '10px';
+        margin-bottom: 'lighblue'
     }
-    .button:hover {
+    .box :hover {
         border: '1px solid white';
         background-color: 'lightblue';
         color: 'white'

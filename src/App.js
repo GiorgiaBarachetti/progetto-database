@@ -10,7 +10,6 @@ function App() {
     <div className="App">
       <Login/>
       
-      cc
       
     </div>
   );

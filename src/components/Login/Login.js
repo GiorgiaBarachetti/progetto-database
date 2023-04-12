@@ -1,11 +1,7 @@
-/*
-import Flex from "../../components/Flex";
-import Spacer from "../../components/Spacer";
-import Input from "../../components/Input";
-import Button from "../../components/Button";
-*/
+
 import {FormControl, FormLabel, Form} from 'react-bootstrap';
 import Input from '../componentsLogin/input'
+import Button from '../componentsLogin/button'
 import { useState } from "react";
 //import { validateEmail, ROUTES } from "../../utils/costants";
 import { useNavigate } from 'react-router-dom';
@@ -46,17 +42,19 @@ const Login = () => {
     };
 */
     return (
-            <div>
+        <div style={{border:'1px solid lightblue' , backgroundColor: 'lightblue' , padding: '20px' , paddingBottom:'40px', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+            <h1 style={{color:'white'}}>Login</h1>
                 <Input
-                  label='email'
-                  placeholder='write here...'
+                  label='Email '
+                  placeholder='Write here...'
 
                 />
                 <Input
-                  label='Password'
-                  placeholder='write here...'
+                  label='Password '
+                  placeholder='Write here...'
 
                 />
+                <Button/>
 
             </div>
 

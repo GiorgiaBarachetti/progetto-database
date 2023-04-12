@@ -6,12 +6,13 @@ const Input = ({ label, error, ...rest }) => {
   return (
         <div>
                     
-            <label style={{ fontSize: '14px' }}>{label}</label>
-            
+            <label style={{ fontSize: '14px', color: 'white', fontWeight: 'bold'}}>{label}</label>
+            <br></br>
             <input
                 style={{
                     padding: '10px',
                     border: '1px solid lightblue',
+                    
                 }}
                 {...rest}
                 />

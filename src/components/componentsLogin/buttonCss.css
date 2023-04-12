@@ -1,0 +1,13 @@
+.button {
+        background-color: 'white';
+        color: 'lightblue';
+        font-weight: 'bold';
+        margin-top: '25px';
+        border: 'none';
+        padding: '10px'; 
+    }
+    .button:hover {
+        border: '1px solid white';
+        background-color: 'lightblue';
+        color: 'white'
+    }

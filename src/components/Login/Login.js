@@ -46,9 +46,10 @@ const Login = () => {
                   onChange={handleChangeUsername}
                   value={username}
                   error={errorUsername}
+                  type="email"
 
                 />
-                <Input
+                <Input 
                   label='Password '
                   placeholder='Write here...'
                   type= 'password'

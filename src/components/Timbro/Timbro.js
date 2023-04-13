@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { Form } from "react-bootstrap";
+import Table from 'react-bootstrap/Table';
+import Button from 'react-bootstrap/Button';
 import '../../css/timbro.css'
+
 
 const Modal = ({ handleClose, show, children }) => {
   const showHideClassName = show ? "modal display-block" : "modal display-none";
@@ -7,7 +11,7 @@ const Modal = ({ handleClose, show, children }) => {
     <div className={showHideClassName}>
       <section className="modal-main">
         {children}
-        <button onClick={handleClose}>Chiudi</button>
+        <Button onClick={handleClose}>Chiudi</Button>
       </section>
     </div>
   );
@@ -18,9 +22,17 @@ const Timbro = () => {
   const [showModal, setShowModal] = useState(false);
 
   const fetchTimbri = async () => {
-    const response = await fetch("urljson");
+    const response = await fetch("http://localhost:3000/utenti");
     const dataJson = await response.json();
-    setTimbri(dataJson.users);
+    setTimbri(dataJson);
+  };
+
+  const [dataOra, setDataOra] = useState("");
+  const [tipo, setTipo] = useState("entrata");
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(`Data e ora: ${dataOra}, Tipo: ${tipo}`);
   };
 
   const handleOpenModal = () => {
@@ -37,11 +49,11 @@ const Timbro = () => {
 
   return (
     <div>
-      <button onClick={handleOpenModal}>Nuovo</button>
-      {timbri.map((timbro, index) => (
+      <Button onClick={handleOpenModal} style={{margin: "10px"}}>Nuovo</Button>
+      {timbri?.map((timbro, index) => (
         <div>Il tuo ID: {timbro.id}</div>
       ))}
-      <table>
+      <Table striped bordered hover>
         <thead>
           <tr>
             <th>Data</th>
@@ -50,7 +62,7 @@ const Timbro = () => {
           </tr>
         </thead>
         <tbody>
-          {timbri.map((timbro, index) => (
+          {timbri?.map((timbro, index) => (
             <tr key={index}>
               <td>{timbro.data}</td>
               <td>{timbro.ora}</td>
@@ -58,10 +70,32 @@ const Timbro = () => {
             </tr>
           ))}
         </tbody>
-      </table>
+      </Table>
       <Modal show={showModal} handleClose={handleCloseModal}>
-        <h2>Timbratura</h2>
-        <p>Contenuto del Modale</p>
+      <Form onSubmit={handleSubmit} >
+      <Form.Group controlId="data-ora">
+        <Form.Label>Data e ora</Form.Label>
+        <Form.Control
+          type="datetime-local"
+          value={dataOra}
+          onChange={(e) => setDataOra(e.target.value)}
+        />
+      </Form.Group>
+
+      <Form.Group controlId="tipo">
+        <Form.Label>Tipo</Form.Label>
+        <Form.Control
+          as="select"
+          value={tipo}
+          onChange={(e) => setTipo(e.target.value)}
+        >
+          <option value="entrata">Entrata</option>
+          <option value="uscita">Uscita</option>
+        </Form.Control>
+      </Form.Group>
+
+      <Button type="submit" style={{marginTop:"5px", marginBottom:"5px"}}>Invia</Button>
+    </Form>
       </Modal>
     </div>
   );

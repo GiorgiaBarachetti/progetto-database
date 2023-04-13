@@ -2,6 +2,7 @@ import Input from '../componentsLogin/input'
 import Button from '../componentsLogin/button'
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import {PathRoutes, ROUTE} from '../ruotes/PathRoutes'
 
 const Login = () => {
 
@@ -29,7 +30,7 @@ const Login = () => {
             setErrorUsername("Errore nell'username");
         }
         if(username.toLowerCase() === 'luca@gmail.com' && password.toLowerCase() === 'bello'){
-            return navigate('timbro');
+            return navigate(ROUTE.timbro);
         }else if(username.toLowerCase() === '' && password.toLowerCase() === ''){
             return setError('Inserisci le credenziali nei campi');
         }else{
@@ -45,7 +46,7 @@ const Login = () => {
                   placeholder='Write here...'
                   onChange={handleChangeUsername}
                   value={username}
-                  error={errorUsername}
+                  errorUsername={errorUsername}
                   type="email"
 
                 />

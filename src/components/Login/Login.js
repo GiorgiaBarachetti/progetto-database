@@ -47,11 +47,13 @@ const Login = () => {
                 <Input
                   label='Email '
                   placeholder='Write here...'
+                  type="email"
 
                 />
-                <Input
+                <Input 
                   label='Password '
                   placeholder='Write here...'
+                  type="password"
 
                 />
                 <Button/>

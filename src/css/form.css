@@ -1,11 +1,11 @@
-/* Reset dello stile del form */
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
   }
   
-  /* Stile del form */
+  
   form {
     display: flex;
     flex-direction: column;
@@ -13,14 +13,14 @@
     margin-top: 20px;
   }
   
-  /* Stile dei label */
+  
   label {
     font-weight: bold;
     margin-bottom: 5px;
     font-size: 16px;
   }
   
-  /* Stile dei FormControl */
+  
   .form-control {
     margin-bottom: 10px;
     font-size: 16px;
@@ -32,14 +32,12 @@
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   }
   
-  /* Stile del FormControl quando è in focus */
   .form-control:focus {
     border-color: #007bff;
     outline: none;
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
   }
   
-  /* Stile del bottone */
   button[type="submit"] {
     background-color: #007bff;
     color: #fff;
@@ -51,13 +49,11 @@
     transition: background-color 0.15s ease-in-out;
   }
   
-  /* Stile del bottone quando è disabilitato */
   button[type="submit"]:disabled {
     opacity: 0.5;
     cursor: not-allowed;
   }
   
-  /* Stile del bottone quando è in hover */
   button[type="submit"]:hover:not(:disabled) {
     background-color: #0069d9;
   }

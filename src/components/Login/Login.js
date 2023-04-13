@@ -3,8 +3,6 @@ import Button from '../componentsLogin/button'
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
-//import { validateEmail, ROUTES } from "../../utils/costants";
-
 const Login = () => {
 
     const validatEmail = /[^\s@]+@[^\s@]+\.[^\s@]+/

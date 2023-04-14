@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 const Button = () => {
 
-    const [isHover, setIsHover] = useState(false);
+   const [isHover, setIsHover] = useState(false);
 
    const handleMouseEnter = () => {
       setIsHover(true);
@@ -16,7 +16,6 @@ const Button = () => {
         color: isHover ? 'white': 'lightblue',
         fontWeight: 'bold',
         margintop: '25px',
-        border: 'none',
         padding: '10px',
         marginTop: '20px',
         width: '150px',
@@ -24,11 +23,11 @@ const Button = () => {
         border: '2px solid white'
    };
 
-    return <button className="box"
-    style={boxStyle}
-    onMouseEnter={handleMouseEnter}
-    onMouseLeave={handleMouseLeave}
-
+    return <button
+               style={boxStyle}
+               onMouseEnter={handleMouseEnter}
+               onMouseLeave={handleMouseLeave}
+               
            >SUBMIT</button>
 }
 

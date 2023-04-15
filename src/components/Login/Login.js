@@ -48,7 +48,8 @@ const Login = () => {
       
       const handleClickLogin = () => {
           if((document.getElementById('username').value)==='luca' && (document.getElementById('psw').value)=== 'luca'){
-              return navigate('timbro')
+            //return alert('ci sono riuscita bastardi')  
+            return navigate('timbro')
           }
           /*
           if(!validatEmail.test(username.toLowerCase())){

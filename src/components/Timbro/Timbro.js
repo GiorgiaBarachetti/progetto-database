@@ -3,6 +3,7 @@ import { Form } from "react-bootstrap";
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import '../../css/timbro.css'
+import '../../css/popUpTimbro.css'
 
 
 const Modal = ({ handleClose, show, children }) => {
@@ -51,7 +52,7 @@ const Timbro = () => {
     <div>
       <Button onClick={handleOpenModal} style={{margin: "10px"}}>Nuovo</Button>
       {timbri?.map((timbro, index) => (
-        <div>Il tuo ID: {timbro.id}</div>
+        <div>Il tuo ID utente: {timbro.id}</div>
       ))}
       <Table striped bordered hover>
         <thead>

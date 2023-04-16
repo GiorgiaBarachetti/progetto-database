@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const Button = () => {
+const Button = ({ onClick, label, color }) => {
 
    const [isHover, setIsHover] = useState(false);
 
@@ -13,7 +13,7 @@ const Button = () => {
 
    const boxStyle = {
         backgroundColor: isHover ? 'lightblue' : 'white',
-        color: isHover ? 'white': 'lightblue',
+        color: isHover ? {color}: {color},
         fontWeight: 'bold',
         margintop: '25px',
         padding: '10px',
@@ -23,12 +23,16 @@ const Button = () => {
         border: '2px solid white'
    };
 
+   const handleClick = () => {
+      onClick && onClick();
+   };
+
     return <button
                style={boxStyle}
                onMouseEnter={handleMouseEnter}
                onMouseLeave={handleMouseLeave}
-               
-           >SUBMIT</button>
+               onClick={handleClick}
+           >{label}</button>
 }
 
 export default Button;

@@ -7,86 +7,71 @@ import {PathRoutes, ROUTE} from '../ruotes/PathRoutes'
 const Login = () => {
 
 
-    const names = [
-          {'id':1,
-          'name': 'gio',
-          'password': 'gio'
-          },
-  
-          {'id': 2,
-          'name': 'glo',
-          'password': 'glo'
-          },
-      ]
-  
-      const validatEmail = /[^\s@]+@[^\s@]+\.[^\s@]+/
-  
-      const [username, setUsername] = useState(''); 
-      const [password, setPassword] = useState(''); 
-      const [error, setError] = useState(''); 
-      
-      const [errorUsername, setErrorUsername] = useState('');
-  
-      const navigate = useNavigate();
-  
-      const handleChangeUsername = (event) => {
-          setUsername(event.valueOf());
-          setError('');
-      }
-  
-      const handleChangePassword = (event) => {
-          setPassword(event.target.valueOf());
-      }
-  /*
-      const alertMessage = () =>{
-          alert(document.getElementById('username').value)
-      }
-  */
-  
-  
-      //controllo errori password
-      
-      const handleClickLogin = () => {
-          if((document.getElementById('username').value)==='luca' && (document.getElementById('psw').value)=== 'luca'){
-            //return alert('ci sono riuscita bastardi')  
-            return navigate('timbro')
-          }
-          /*
-          if(!validatEmail.test(username.toLowerCase())){
-              setErrorUsername("Errore nell'username");
-          }
-          
-              /*navigate(ROUTE.timbro);
-          }else if(username.toLowerCase() === '' && password.toLowerCase() === ''){
-              return setError('Inserisci le credenziali nei campi');
-          }else{
-              return setError('LOGIN ERRATA');
-          }*/
-          }
 
-    return (
-        <div style={{border:'1px solid lightblue' , backgroundColor: 'lightblue' , padding: '20px' , paddingBottom:'40px', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-            <h1 style={{color:'white'}}>Login</h1>
-                <Input
-                  id='username'
-                  placeholder='Write here...'
-                  
-                  onChange={handleChangeUsername}
-                  
-                />
-                <Input 
-                  id='psw'
-                  label='Password '
-                  placeholder='Write here...'
-                  type= 'password'
-                  onChange={handleChangePassword}
-               />
-                <Button
-                 onClick={handleClickLogin}                
-                />
-                <div style={{color: 'black'}}>{error}</div>
-            </div>
-    );
+    
+  const [users, setUsers] = useState([
+    {id: 1, email: 'gio@example.com', password: 'gio'},
+    {id: 2, email: 'glo@example.com', password: 'glo'}
+  ]);
+
+  const [username, setUsername] = useState(''); 
+  const [password, setPassword] = useState(''); 
+  const [error, setError] = useState(''); 
+    
+  const navigate = useNavigate();
+
+  const handleChangeUsername = (event) => {
+    setUsername(event.target.value);
+    setError('');
+  }
+
+  const handleChangePassword = (event) => {
+    setPassword(event.target.value);
+  }
+
+  const handleLogin = () => {
+    const user = users.find(u => u.email === username && u.password === password);
+    if (user) {
+      navigate('timbro');
+    } else {
+      setError('Invalid email or password');
+    }
+  }
+
+  const handleRegistration = () => {
+    if (!username || !password) {
+      setError('Please fill in all fields');
+      return;
+    }
+    if (users.some(u => u.email === username)) {
+      setError('Email already registered');
+      return;
+    }
+    const newUser = { id: users.length + 1, email: username, password: password };
+    setUsers([...users, newUser]);
+    navigate('timbro');
+  }
+
+  return (
+    <div style={{border:'1px solid lightblue' , backgroundColor: 'lightblue' , padding: '20px' , paddingBottom:'40px', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+      <h1 style={{color:'white'}}>Login</h1>
+      <Input
+        
+        placeholder='Email'
+        onChange={handleChangeUsername}
+      />
+      <Input 
+        id='psw'
+        
+        placeholder='Password'
+        type= 'password'
+        onChange={handleChangePassword}
+      />
+      <Button onClick={handleLogin} label='LOG IN'></Button>
+      <Button onClick={handleRegistration} label='REGISTRATI'></Button>
+      <p style={{color: 'red', marginTop:'10px', fontSize:'20px'}}>{error}</p>
+    </div>
+  );
 };
 
 export default Login;

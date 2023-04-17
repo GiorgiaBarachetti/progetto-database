@@ -1,4 +1,5 @@
 export const ROUTE = {
     login: '/',
-    timbro:'/timbro'
+    timbro:'/timbro',
+    registration:'/registration',
 }

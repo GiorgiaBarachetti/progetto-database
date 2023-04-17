@@ -1,27 +1,36 @@
 import Input from '../componentsLogin/input'
 import Button from '../componentsLogin/button'
-import { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { Route, useNavigate } from 'react-router-dom';
 import {PathRoutes, ROUTE} from '../ruotes/PathRoutes'
 
 const Login = () => {
-
-
-
-    
+/*
   const [users, setUsers] = useState([
-    {id: 1, email: 'gio@example.com', password: 'gio'},
-    {id: 2, email: 'glo@example.com', password: 'glo'}
+    {id: 1, name:'giorgi', email: 'gio@example.com', password: 'gio'},
+    {id: 2, name:'laura', email: 'glo@example.com', password: 'glo'}
   ]);
+  */
+  const [utenti, setUtenti] = useState([]);
 
-  const [username, setUsername] = useState(''); 
+  const fetchUsers = async () => {
+      const response = await fetch('http://localhost:3000/users')
+      const dataJson = await response.json()
+      setUtenti(dataJson)
+  }
+
+  useEffect(()=>{
+      fetchUsers()
+  },[])
+
+  const [email, setEmail] = useState(''); 
   const [password, setPassword] = useState(''); 
   const [error, setError] = useState(''); 
     
   const navigate = useNavigate();
 
   const handleChangeUsername = (event) => {
-    setUsername(event.target.value);
+    setEmail(event.target.value);
     setError('');
   }
 
@@ -30,46 +39,49 @@ const Login = () => {
   }
 
   const handleLogin = () => {
-    const user = users.find(u => u.email === username && u.password === password);
+    const user = users.find(u => u.email === email && u.password === password);
     if (user) {
-      navigate('timbro');
+      alert(`Benvenuto ${user.name}`)
+      navigate(ROUTE.timbro);
     } else {
-      setError('Invalid email or password');
+      setError('Invalid email or password!');
     }
   }
 
   const handleRegistration = () => {
-    if (!username || !password) {
+    navigate(ROUTE.registration)
+    /*
+    if (!email || !password) {
       setError('Please fill in all fields');
       return;
     }
-    if (users.some(u => u.email === username)) {
+    if (users.some(u => u.email === email)) {
       setError('Email already registered');
       return;
     }
-    const newUser = { id: users.length + 1, email: username, password: password };
+    const newUser = { id: users.length + 1, email: email, password: password };
     setUsers([...users, newUser]);
-    navigate('timbro');
+    navigate(ROUTE.timbro);
+    */
   }
 
   return (
     <div style={{border:'1px solid lightblue' , backgroundColor: 'lightblue' , padding: '20px' , paddingBottom:'40px', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
       <h1 style={{color:'white'}}>Login</h1>
       <Input
-        
         placeholder='Email'
         onChange={handleChangeUsername}
       />
       <Input 
         id='psw'
-        
         placeholder='Password'
         type= 'password'
         onChange={handleChangePassword}
       />
+        <p style={{color: 'red', marginTop:'10px', fontSize:'15px'}}>{error}</p>
       <Button onClick={handleLogin} label='LOG IN'></Button>
+      <p style={{marginTop:'20px', marginBottom:'0', color:'white'}}>Non sei ancora registrato? registrati ora.</p>
       <Button onClick={handleRegistration} label='REGISTRATI'></Button>
-      <p style={{color: 'red', marginTop:'10px', fontSize:'20px'}}>{error}</p>
     </div>
   );
 };

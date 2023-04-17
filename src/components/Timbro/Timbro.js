@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Form } from "react-bootstrap";
-import Table from 'react-bootstrap/Table';
+//import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import '../../css/timbro.css'
 import '../../css/popUpTimbro.css'
+import $ from "jquery";
+
+
+
+
 
 
 const Modal = ({ handleClose, show, children }) => {
@@ -19,15 +24,8 @@ const Modal = ({ handleClose, show, children }) => {
 };
 
 const Timbro = () => {
-  const [timbri, setTimbri] = useState([]);
+  
   const [showModal, setShowModal] = useState(false);
-
-  const fetchTimbri = async () => {
-    const response = await fetch("http://localhost:3000/utenti");
-    const dataJson = await response.json();
-    setTimbri(dataJson);
-  };
-
   const [dataOra, setDataOra] = useState("");
   const [tipo, setTipo] = useState("entrata");
 
@@ -44,17 +42,19 @@ const Timbro = () => {
     setShowModal(false);
   };
 
-  useEffect(() => {
-    fetchTimbri();
-  }, []);
+  $(document).ready(function () {
+    $('#example').DataTable({
+      ajax: 'http://localhost:3000/utenti',
+    });
+});
+
+ 
 
   return (
     <div>
       <Button onClick={handleOpenModal} style={{margin: "10px"}}>Nuovo</Button>
-      {timbri?.map((timbro, index) => (
-        <div>Il tuo ID utente: {timbro.id}</div>
-      ))}
-      <Table striped bordered hover>
+      
+      <table id="example" class="display"   >
         <thead>
           <tr>
             <th>Data</th>
@@ -62,16 +62,7 @@ const Timbro = () => {
             <th>Tipo</th>
           </tr>
         </thead>
-        <tbody>
-          {timbri?.map((timbro, index) => (
-            <tr key={index}>
-              <td>{timbro.data}</td>
-              <td>{timbro.ora}</td>
-              <td>{timbro.tipo}</td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
+      </table>
       <Modal show={showModal} handleClose={handleCloseModal}>
       <Form onSubmit={handleSubmit} >
       <Form.Group controlId="data-ora">

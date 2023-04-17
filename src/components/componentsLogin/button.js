@@ -13,11 +13,11 @@ const Button = ({ onClick, label, color }) => {
 
    const boxStyle = {
         backgroundColor: isHover ? 'lightblue' : 'white',
-        color: isHover ? {color}: {color},
+        color: isHover ? 'white' : 'lightblue',
         fontWeight: 'bold',
         margintop: '25px',
         padding: '10px',
-        marginTop: '20px',
+        marginTop: '10px',
         width: '150px',
         borderRadius: '5px',
         border: '2px solid white'

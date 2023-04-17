@@ -1,6 +1,4 @@
 import './components/LoginandRegistration/Login.js';
-import Timbro from './components/Timbro/Timbro.js';
-
 import Routes from './components/ruotes/Routes.js'
 import 'datatables.net-dt/css/jquery.dataTables.css';
 import 'datatables.net-dt/css/jquery.dataTables.min.css';

@@ -15,7 +15,7 @@ const Input = ({ label, error, ...rest }) => {
                     borderRadius: '5px'
                 }}
                 {...rest}
-                />
+                ></input>
             <div style={{ color: 'red' }}>{error}</div>
         </div>
     

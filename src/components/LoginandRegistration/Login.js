@@ -1,20 +1,15 @@
 import Input from '../componentsLogin/input'
 import Button from '../componentsLogin/button'
 import { useState, useEffect } from "react";
-import { Route, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {PathRoutes, ROUTE} from '../ruotes/PathRoutes'
 
 const Login = () => {
-/*
-  const [users, setUsers] = useState([
-    {id: 1, name:'giorgi', email: 'gio@example.com', password: 'gio'},
-    {id: 2, name:'laura', email: 'glo@example.com', password: 'glo'}
-  ]);
-  */
+
   const [utenti, setUtenti] = useState([]);
 
   const fetchUsers = async () => {
-      const response = await fetch('http://localhost:3000/users')
+      const response = await fetch("http://localhost:3000/users")
       const dataJson = await response.json()
       setUtenti(dataJson)
   }
@@ -22,6 +17,7 @@ const Login = () => {
   useEffect(()=>{
       fetchUsers()
   },[])
+
 
   const [email, setEmail] = useState(''); 
   const [password, setPassword] = useState(''); 
@@ -39,7 +35,7 @@ const Login = () => {
   }
 
   const handleLogin = () => {
-    const user = users.find(u => u.email === email && u.password === password);
+    const user = utenti.find(u => u.email === email && u.password === password);
     if (user) {
       alert(`Benvenuto ${user.name}`)
       navigate(ROUTE.timbro);
@@ -81,7 +77,7 @@ const Login = () => {
         <p style={{color: 'red', marginTop:'10px', fontSize:'15px'}}>{error}</p>
       <Button onClick={handleLogin} label='LOG IN'></Button>
       <p style={{marginTop:'20px', marginBottom:'0', color:'white'}}>Non sei ancora registrato? registrati ora.</p>
-      <Button onClick={handleRegistration} label='REGISTRATI'></Button>
+      <Button onClick={handleRegistration} label='REGISTRATI'>REGISTRATI</Button>
     </div>
   );
 };

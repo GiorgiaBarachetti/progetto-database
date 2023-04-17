@@ -6,6 +6,8 @@ import {useState} from 'react'
 
 function Registration() {
 
+
+
     const [id, setId] = useState('')
     const [nome, setNome] = useState('')
     const [cognome, setCognome] = useState('')
@@ -39,6 +41,18 @@ function Registration() {
       <Input 
       placeholder='Cognome'
       />
+      <Input 
+      placeholder='Data di nascita'
+      />
+      <Input 
+      placeholder='Sesso'
+      as="select"
+      value={sesso}
+      onChange={(e) => setSesso(e.target.value)}
+      >
+        <option value="entrata">Entrata</option>
+        <option value="uscita">Uscita</option>
+      </Input>
       <Input 
       placeholder='Email'
       />

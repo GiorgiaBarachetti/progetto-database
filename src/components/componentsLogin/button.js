@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const Button = ({ onClick, label, color }) => {
+const Button = ({ onClick, label, color, ...rest }) => {
 
    const [isHover, setIsHover] = useState(false);
 
@@ -10,9 +10,19 @@ const Button = ({ onClick, label, color }) => {
    const handleMouseLeave = () => {
       setIsHover(false);
    };
+/*
+   const hover = ()=>{
+      if(standard){
+         return isHover ? 'white' : 'lightblue'
+      }
+      return isHover ? 'white' : 'lightblue'
+   }
+*/
 
    const boxStyle = {
         backgroundColor: isHover ? 'lightblue' : 'white',
+        //aggiungi qua hover 
+        //color: hover(),
         color: isHover ? 'white' : 'lightblue',
         fontWeight: 'bold',
         margintop: '25px',
@@ -22,7 +32,7 @@ const Button = ({ onClick, label, color }) => {
         borderRadius: '5px',
         border: '2px solid white'
    };
-
+//puoi rimuoverlo
    const handleClick = () => {
       onClick && onClick();
    };
@@ -32,6 +42,7 @@ const Button = ({ onClick, label, color }) => {
                onMouseEnter={handleMouseEnter}
                onMouseLeave={handleMouseLeave}
                onClick={handleClick}
+               {...rest}
            >{label}</button>
 }
 

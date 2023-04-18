@@ -6,11 +6,6 @@ import '../../css/timbro.css'
 import '../../css/popUpTimbro.css'
 import $ from "jquery";
 
-
-
-
-
-
 const Modal = ({ handleClose, show, children }) => {
   const showHideClassName = show ? "modal display-block" : "modal display-none";
   return (
@@ -44,7 +39,7 @@ const Timbro = () => {
 
   $(document).ready(function () {
     $('#example').DataTable({
-      ajax: 'http://localhost:3000/utenti',
+      ajax: 'db.json',
     });
 });
 

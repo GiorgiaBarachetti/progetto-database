@@ -1,5 +1,6 @@
 import Input from '../componentsLogin/input'
 import Button from '../componentsLogin/button'
+import background from '../../utils/images/background.jpeg'
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import {PathRoutes, ROUTE} from '../ruotes/PathRoutes'
@@ -57,12 +58,14 @@ const Login = () => {
     }
     const newUser = { id: users.length + 1, email: email, password: password };
     setUsers([...users, newUser]);
+    alert('Nuovo dipendente aggiunto')
     navigate(ROUTE.timbro);
     */
   }
 
   return (
-    <div style={{border:'1px solid lightblue' , backgroundColor: 'lightblue' , padding: '20px' , paddingBottom:'40px', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+    <div id="divLogin" 
+    style={{backgroundImage: `url(${background})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", border:'1px solid lightblue' , backgroundColor: 'lightblue' , padding: '20px' , paddingBottom:'40px', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
       <h1 style={{color:'white'}}>Login</h1>
       <Input
         placeholder='Email'

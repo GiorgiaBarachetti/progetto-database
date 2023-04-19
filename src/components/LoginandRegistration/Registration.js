@@ -13,7 +13,7 @@ function Registration() {
     const navigate = useNavigate('')
     const [nome, setNome] = useState('')
     const [cognome, setCognome] = useState('')
-    const [dataDiNascita, setDataDiNascita] = useState('')
+    const [datanascita, setDataNascita] = useState('')
     const [sesso, setSesso] = useState('M')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -21,7 +21,7 @@ function Registration() {
     const [nomeError, setNomeError] = useState('')
     const [cognomeError, setCognomeError] = useState('')
     const[emailError, setEmailError] = useState('')
-    const [dataDiNascitaError, setDataDiNascitaError] = useState('')
+    const [dataNascitaError, setDataDiNascitaError] = useState('')
     const [passwordError, setPasswordError] = useState('')
 
 
@@ -34,7 +34,7 @@ function Registration() {
       }
       
       const handleChangeData = (event) => {
-        setDataDiNascita(event.target.value);
+        setDataNascita(event.target.value);
       }
 
     const handleChangeEmail = (event) => {
@@ -61,7 +61,7 @@ function Registration() {
        if (!cognome.length) {
           setCognomeError("Inserimento cognome obbligatorio")
        }
-       if (!dataDiNascita.length) {
+       if (!datanascita.length) {
         setDataDiNascitaError("Inserimento data obbligatorio")
       }
       if (!password.length) {
@@ -76,7 +76,7 @@ function Registration() {
 
 
 
-        const data = { nome, cognome, dataDiNascita, sesso, email, password };
+        const data = { nome, cognome, datanascita, sesso, email, password };
         fetch('http://localhost:3000/users', {
           method: 'POST',
           headers: {
@@ -118,9 +118,9 @@ function Registration() {
         label='(Data di nascita)'
         id="data" 
         type="date"
-        value={dataDiNascita}
+        value={datanascita}
         onChange={handleChangeData}
-        error={dataDiNascitaError}
+        error={dataNascitaError}
         />
         <Form.Control
             style={{marginTop: '20px', width:'40px'}}

@@ -49,20 +49,6 @@ const Login = () => {
 
   const handleRegistration = () => {
     navigate(ROUTE.registration)
-    /*
-    if (!email || !password) {
-      setError('Please fill in all fields');
-      return;
-    }
-    if (users.some(u => u.email === email)) {
-      setError('Email already registered');
-      return;
-    }
-    const newUser = { id: users.length + 1, email: email, password: password };
-    setUsers([...users, newUser]);
-    alert('Nuovo dipendente aggiunto')
-    navigate(ROUTE.timbro);
-    */
   }
 
   return (

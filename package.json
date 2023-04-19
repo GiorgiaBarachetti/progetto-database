@@ -43,6 +43,7 @@
     ]
   },
   "devDependencies": {
+    "@types/datatables.net": "^1.10.24",
     "tailwindcss": "^3.3.1"
   }
 }

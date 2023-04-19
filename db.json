@@ -1,24 +1,63 @@
 {
   "utenti": {
-     
-          "data":[
-              {
-                  
-                  "dataOra": "20/06/2021",
-                  "tipo": "uscita"
-                  },
-                  {
-                    
-                    "dataOra": "20/06/2021",
-                    "tipo": "uscita"
-                  },
-                  {
-                    
-                    "dataOra": "20/06/2021",
-                    "tipo": "uscita"
-                  }
-          ]
+    "data": [
+      {
+        "dataOra": "2023-04-08T22:21",
+        "tipo": "entrata"
+      },
+      {
+        "dataOra": "2023-04-08T22:21",
+        "tipo": "entrata"
+      },{
+        "dataOra": "2023-04-08T22:21",
+        "tipo": "entrata"
+      },{
+        "dataOra": "2023-04-08T22:21",
+        "tipo": "entrata"
+      },{
+        "dataOra": "2023-04-08T22:21",
+        "tipo": "entrata"
+      },{
+        "dataOra": "2023-04-08T22:21",
+        "tipo": "entrata"
+      },{
+        "dataOra": "2023-04-08T22:21",
+        "tipo": "entrata"
+      },{
+        "dataOra": "2023-04-08T22:21",
+        "tipo": "entrata"
+      },{
+        "dataOra": "2023-04-08T22:21",
+        "tipo": "entrata"
+      },
+      {
+        "dataOra": "2023-04-08T22:21",
+        "tipo": "entrata"
+      },{
+        "dataOra": "2023-04-08T22:21",
+        "tipo": "entrata"
+      },{
+        "dataOra": "2023-04-08T22:21",
+        "tipo": "entrata"
+      },{
+        "dataOra": "2023-04-08T22:21",
+        "tipo": "entrata"
+      },{
+        "dataOra": "2023-04-08T22:21",
+        "tipo": "entrata"
+      },{
+        "dataOra": "2023-04-08T22:21",
+        "tipo": "entrata"
+      },{
+        "dataOra": "2023-04-08T22:21",
+        "tipo": "entrata"
+      },{
+        "dataOra": "2023-04-08T22:21",
+        "tipo": "entrata"
+      },{
+        "dataOra": "2023-04-08T22:21",
+        "tipo": "entrata"
       }
-         
- 
- }
+    ]
+  }
+}

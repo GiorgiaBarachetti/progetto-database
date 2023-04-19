@@ -1,27 +1,24 @@
 {
-    "utenti": {
-        
-            "data":[
-                {
-            
-                    "data": "20/06/2021",
-                    "ora": "13:15",
-                    "tipo": "uscita"
-                    },
-                    {
-                        
-                    "data": "21/06/2021",
-                    "ora": "09:00",
-                    "tipo": "entrata"
-                    },
-                    {
+  "utenti": {
+     
+          "data":[
+              {
+                  
+                  "dataOra": "20/06/2021",
+                  "tipo": "uscita"
+                  },
+                  {
                     
-                    "data": "21/06/2021",
-                    "ora": "12:45",
+                    "dataOra": "20/06/2021",
                     "tipo": "uscita"
-                    }
-            ]
-        }
-            
-    
-   }
+                  },
+                  {
+                    
+                    "dataOra": "20/06/2021",
+                    "tipo": "uscita"
+                  }
+          ]
+      }
+         
+ 
+ }

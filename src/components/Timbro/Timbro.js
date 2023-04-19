@@ -39,37 +39,49 @@ const Timbro = () => {
     setShowModal(false);
   };
 
-  $(document).ready(function () {
-    $('#example').DataTable({
-        ajax: 'http://localhost:3000/utenti',
-        columns: [
-            { data: 'data' },
-            { data: 'ora' },
-            { data: 'tipo' },
-            
-        ],
-    });
-});
+  
 
- 
+const handleSave  = async () => {
+  const body = JSON.stringify({ dataOra, tipo });
+    await fetch('http://localhost:3000/utenti', {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+      body,
+    });
+}
+$(document).ready(function () {
+  setTimeout(function () {
+  $('#myTable').DataTable({
+    ajax: 'http://localhost:3000/utenti',
+    columns: [
+        { data: 'dataOra' },
+        { data: 'tipo' }
+    ],
+  });
+});
+}); //inserisci codice in un pulsante per evitare allert 
+    
 
   return (
     <div>
       <Button onClick={handleOpenModal} style={{margin: "10px"}}>Nuovo</Button>
       
-      <table id="example" class="display"  >
+
+      
+      <table id="myTable" className="table align-items-center justify-content-center mb-0"  >
         <thead>
           <tr>
-            <th>Data</th>
-            <th>Ora</th>
-            <th>Tipo</th>
+            <th className="text-uppercase text-secondary text-sm font-weight-bolder opacity-7 ps-2">dataOra</th>
+            <th className="text-uppercase text-secondary text-sm font-weight-bolder opacity-7 ps-2">tipo</th>
           </tr>
         </thead>
         <tfoot>
             <tr>
-            <th>Data</th>
-            <th>Ora</th>
-            <th>Tipo</th>
+            <th className="text-uppercase text-secondary text-sm font-weight-bolder opacity-7 ps-2">dataOra</th>
+            <th className="text-uppercase text-secondary text-sm font-weight-bolder opacity-7 ps-2">tipo</th>
             </tr>
         </tfoot>
       </table>
@@ -96,7 +108,7 @@ const Timbro = () => {
         </Form.Control>
       </Form.Group>
 
-      <Button type="submit" style={{marginTop:"5px", marginBottom:"5px"}}>Invia</Button>
+      <Button type="submit" style={{marginTop:"5px", marginBottom:"5px"}}onClick={handleSave} >Invia</Button>
     </Form>
       </Modal>
     </div>

@@ -1,6 +1,5 @@
-
 import React from 'react';
-
+import Spacer from './spacer';
 
 const Input = ({ label, error, ...rest }) => {
   return (
@@ -16,7 +15,8 @@ const Input = ({ label, error, ...rest }) => {
                 }}
                 {...rest}
                 ></input>
-            <div style={{ color: 'red' }}>{error}</div>
+                <Spacer height={3}/>
+            <div style={{ color: 'white', backgroundColor:'red', borderRadius:'5px', textAlign:'center', }}>{error}</div>
         </div>
     
   );

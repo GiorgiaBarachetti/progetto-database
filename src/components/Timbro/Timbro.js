@@ -4,6 +4,8 @@ import { Form } from "react-bootstrap";
 import Button from 'react-bootstrap/Button';
 import '../../css/timbro.css'
 import '../../css/popUpTimbro.css'
+import 'datatables.net/js/jquery.dataTables.min.js'
+
 import $ from "jquery";
 
 const Modal = ({ handleClose, show, children }) => {
@@ -39,7 +41,13 @@ const Timbro = () => {
 
   $(document).ready(function () {
     $('#example').DataTable({
-      ajax: 'db.json',
+        ajax: 'http://localhost:3000/utenti',
+        columns: [
+            { data: 'data' },
+            { data: 'ora' },
+            { data: 'tipo' },
+            
+        ],
     });
 });
 
@@ -49,7 +57,7 @@ const Timbro = () => {
     <div>
       <Button onClick={handleOpenModal} style={{margin: "10px"}}>Nuovo</Button>
       
-      <table id="example" class="display"   >
+      <table id="example" class="display"  >
         <thead>
           <tr>
             <th>Data</th>
@@ -57,6 +65,13 @@ const Timbro = () => {
             <th>Tipo</th>
           </tr>
         </thead>
+        <tfoot>
+            <tr>
+            <th>Data</th>
+            <th>Ora</th>
+            <th>Tipo</th>
+            </tr>
+        </tfoot>
       </table>
       <Modal show={showModal} handleClose={handleCloseModal}>
       <Form onSubmit={handleSubmit} >

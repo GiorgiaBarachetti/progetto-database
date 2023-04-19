@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Form } from "react-bootstrap";
-//import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import '../../css/timbro.css'
 import '../../css/popUpTimbro.css'
@@ -39,8 +38,6 @@ const Timbro = () => {
     setShowModal(false);
   };
 
-  
-
 const handleSave  = async () => {
   const body = JSON.stringify({ dataOra, tipo });
     await fetch('http://localhost:3000/utenti', {
@@ -52,26 +49,31 @@ const handleSave  = async () => {
       body,
     });
 }
-$(document).ready(function () {
-  setTimeout(function () {
-  $('#myTable').DataTable({
-    ajax: 'http://localhost:3000/utenti',
-    columns: [
-        { data: 'dataOra' },
-        { data: 'tipo' }
-    ],
+
+  $(document).ready(function () {
+    setTimeout(function () {
+    $('#myTable').DataTable({
+      destroy: true,
+      ajax: 'http://localhost:3000/utenti',
+      columns: [
+          { data: 'dataOra' },
+          { data: 'tipo' }
+      ],
+    });
   });
-});
-}); //inserisci codice in un pulsante per evitare allert 
+  });
+
+
+ //inserisci codice in un pulsante per evitare allert 
     
 
   return (
     <div>
       <Button onClick={handleOpenModal} style={{margin: "10px"}}>Nuovo</Button>
-      
+
 
       
-      <table id="myTable" className="table align-items-center justify-content-center mb-0"  >
+      <table id="myTable" className="table align-items-center justify-content-center mb-0" width="100%" >
         <thead>
           <tr>
             <th className="text-uppercase text-secondary text-sm font-weight-bolder opacity-7 ps-2">dataOra</th>

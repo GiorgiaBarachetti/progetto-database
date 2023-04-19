@@ -39,7 +39,8 @@ const Login = () => {
   const handleLogin = () => {
     const user = utenti.find(u => u.email === email && u.password === password);
     if (user) {
-      alert(`Benvenuto ${user.nome}`)
+      
+      alert(`Benvenuto ${user.nome} ${user.cognome}`)
       navigate(ROUTE.timbro);
     } else {
       setError('Invalid email or password!');

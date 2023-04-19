@@ -1,15 +1,31 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "nome": "giorgi",
-            "cognome":"barachetti",
-            "dataDiNascita": "06/09/2002",
-            "sesso": "F",
-            "email": "gio@example.com",
-            "password": "gio"
-
-        }
-    ]
-
+  "users": [
+    {
+      "id": 1,
+      "nome": "giorgi",
+      "cognome": "barachetti",
+      "dataDiNascita": "06/09/2002",
+      "sesso": "F",
+      "email": "gio@example.com",
+      "password": "gio"
+    },
+    {
+      "nome": "giorgia",
+      "cognome": "bara",
+      "dataDiNascita": "2023-04-01",
+      "sesso": "f",
+      "email": "gio@hefjc.com",
+      "password": "ruhjhjb",
+      "id": 2
+    },
+    {
+      "nome": "giorgi",
+      "cognome": "bara",
+      "dataDiNascita": "2023-04-01",
+      "sesso": "f",
+      "email": "gio@hefjc.com",
+      "password": "ruhjhjb",
+      "id": 3
+    }
+  ]
 }

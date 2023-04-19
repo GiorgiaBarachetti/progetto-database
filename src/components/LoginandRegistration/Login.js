@@ -1,5 +1,6 @@
 import Input from '../componentsLogin/input'
 import Button from '../componentsLogin/button'
+import Spacer from '../componentsLogin/spacer';
 import background from '../../utils/images/background.jpeg'
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
@@ -38,7 +39,7 @@ const Login = () => {
   const handleLogin = () => {
     const user = utenti.find(u => u.email === email && u.password === password);
     if (user) {
-      alert(`Benvenuto ${user.name}`)
+      alert(`Benvenuto ${user.nome}`)
       navigate(ROUTE.timbro);
     } else {
       setError('Invalid email or password!');
@@ -64,8 +65,8 @@ const Login = () => {
   }
 
   return (
-    <div id="divLogin" 
-    style={{backgroundImage: `url(${background})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", border:'1px solid lightblue' , backgroundColor: 'lightblue' , padding: '20px' , paddingBottom:'40px', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+    <div id="divLogin" style={{backgroundImage: `url(${background})`, backgroundRepeat: "no-repeat", height:'100%',backgroundSize: "cover", border:'1px solid lightblue' , backgroundColor: 'lightblue' , padding: '20px' , paddingBottom:'40px', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+      <Spacer height={80}/>
       <h1 style={{color:'white'}}>Login</h1>
       <Input
         placeholder='Email'
@@ -79,8 +80,10 @@ const Login = () => {
       />
         <p style={{color: 'red', marginTop:'10px', fontSize:'15px'}}>{error}</p>
       <Button onClick={handleLogin} label='LOG IN'></Button>
+      
       <p style={{marginTop:'20px', marginBottom:'0', color:'white'}}>Non sei ancora registrato? registrati ora.</p>
       <Button onClick={handleRegistration} label='REGISTRATI'>REGISTRATI</Button>
+      <Spacer height={80}/>
     </div>
   );
 };

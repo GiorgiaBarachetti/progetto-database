@@ -2,30 +2,12 @@
     "users": [
         {
             "id": 1,
-            "name": "giorgi",
+            "nome": "giorgi",
+            "cognome":"barachetti",
+            "dataDiNascita": "06/09/2002",
+            "sesso": "F",
             "email": "gio@example.com",
             "password": "gio"
-
-        },
-        {
-            "id": 2,
-            "name": "gio",
-            "email": "gio",
-            "password": "gio"
-
-        },
-        {
-            "id": 3,
-            "name": "",
-            "email": "",
-            "password": ""
-
-        },
-        {
-            "id": 4,
-            "name": "",
-            "email": "",
-            "password": ""
 
         }
     ]

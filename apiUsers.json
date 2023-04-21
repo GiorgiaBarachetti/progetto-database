@@ -8,24 +8,6 @@
       "sesso": "F",
       "email": "gio@example.com",
       "password": "gio"
-    },
-    {
-      "nome": "giorgia",
-      "cognome": "bara",
-      "dataDiNascita": "2023-04-01",
-      "sesso": "f",
-      "email": "gio@hefjc.com",
-      "password": "ruhjhjb",
-      "id": 2
-    },
-    {
-      "nome": "giorgi",
-      "cognome": "bara",
-      "dataDiNascita": "2023-04-01",
-      "sesso": "f",
-      "email": "gio@hefjc.com",
-      "password": "ruhjhjb",
-      "id": 3
     }
   ]
 }

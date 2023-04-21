@@ -40,7 +40,7 @@ const Login = () => {
     const user = utenti.find(u => u.email === email && u.password === password);
     if (user) {
       
-      alert(`Benvenuto ${user.nome} ${user.cognome}`)
+      alert(`Benvenuto/a ${user.nome} ${user.cognome}`)
       navigate(ROUTE.timbro);
     } else {
       setError('Invalid email or password!');
@@ -49,6 +49,20 @@ const Login = () => {
 
   const handleRegistration = () => {
     navigate(ROUTE.registration)
+    /*
+    if (!email || !password) {
+      setError('Please fill in all fields');
+      return;
+    }
+    if (users.some(u => u.email === email)) {
+      setError('Email already registered');
+      return;
+    }
+    const newUser = { id: users.length + 1, email: email, password: password };
+    setUsers([...users, newUser]);
+    alert('Nuovo dipendente aggiunto')
+    navigate(ROUTE.timbro);
+    */
   }
 
   return (
@@ -69,7 +83,7 @@ const Login = () => {
       <Button onClick={handleLogin} label='LOG IN'></Button>
       
       <p style={{marginTop:'20px', marginBottom:'0', color:'white'}}>Non sei ancora registrato? registrati ora.</p>
-      <Button onClick={handleRegistration} label='REGISTRATI'>REGISTRATI</Button>
+      <Button onClick={handleRegistration} label='REGISTRATI'></Button>
       <Spacer height={80}/>
     </div>
   );

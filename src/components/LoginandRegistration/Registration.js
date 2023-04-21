@@ -4,11 +4,15 @@ import Input from '../componentsLogin/input'
 import Button from '../componentsLogin/button'
 import Spacer from '../componentsLogin/spacer';
 import background from '../../utils/images/registrazione.jpeg'
-import {useState} from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { ROUTE } from '../ruotes/PathRoutes';
 
+import Login from './Login';
+
 function Registration() {
+
+  const [utenti, setUtenti] = useState([]);
 
     const navigate = useNavigate('')
     const [nome, setNome] = useState('')
@@ -24,6 +28,15 @@ function Registration() {
     const [dataNascitaError, setDataDiNascitaError] = useState('')
     const [passwordError, setPasswordError] = useState('')
 
+    const fetchUsers = async () => {
+      const response = await fetch("http://localhost:3000/users")
+      const dataJson = await response.json()
+      setUtenti(dataJson)
+  }
+
+    useEffect(()=>{
+      fetchUsers()
+  },[])
 
     const handleChangeNome = (event) => {
         setNome(event.target.value);
@@ -51,30 +64,36 @@ function Registration() {
       const handleSaveClick = () => {
         if (!validateEmail.test(email.toLowerCase())) {
           setEmailError("Email non valida")
-       }
-       if(!email.length){
-        setEmailError('Inserimento email obbligatorio')
-       }
-       if (!nome.length) {
-          setNomeError("Inserimento nome obbligatorio")
-       }
-       if (!cognome.length) {
-          setCognomeError("Inserimento cognome obbligatorio")
-       }
-       if (!datanascita.length) {
-        setDataDiNascitaError("Inserimento data obbligatorio")
-      }
-      if (!password.length) {
-        setPasswordError("Inserimento password obbligatorio")
-      }
-       if(!validateEmail.test(email.toLowerCase()) || !nome.length || !cognome.length){
-        alert("Riprova ad effettuare l'iscrizione") 
-        return null
-       }
-
-
-
-
+          return;
+        }
+        if(!email.length){
+          setEmailError('Inserimento email obbligatorio')
+          return;
+        }
+        if (utenti.some(u => u.email === email)) {
+          setEmailError('Email già registrata');
+          return;
+        }
+        if (!nome.length) {
+            setNomeError("Inserimento nome obbligatorio")
+            return;
+          }
+        if (!cognome.length) {
+            setCognomeError("Inserimento cognome obbligatorio")
+            return;
+          }
+        if (!datanascita.length) {
+          setDataDiNascitaError("Inserimento data obbligatorio")
+          return;
+        }
+        if (!password.length) {
+          setPasswordError("Inserimento password obbligatorio")
+          return;
+        }
+        if(!validateEmail.test(email.toLowerCase()) || !nome.length || !cognome.length){
+          alert("Riprova ad effettuare l'iscrizione") 
+          return null
+        }
 
         const data = { nome, cognome, datanascita, sesso, email, password };
         fetch('http://localhost:3000/users', {
@@ -96,8 +115,6 @@ function Registration() {
           console.log('Error:', error);
         });
       }
-
-
 
   return <div style={{paddingLeft:'10px', backgroundImage: `url(${background})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", display: 'flex', flexDirection: 'column', alignItems: "center"}}>
         <Spacer height={20}/>

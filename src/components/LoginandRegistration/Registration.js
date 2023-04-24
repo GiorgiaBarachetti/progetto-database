@@ -64,33 +64,35 @@ function Registration() {
       const handleSaveClick = () => {
         if (!validateEmail.test(email.toLowerCase())) {
           setEmailError("Email non valida")
-          return;
+          
         }
         if(!email.length){
           setEmailError('Inserimento email obbligatorio')
-          return;
+          
         }
+        
         if (utenti.some(u => u.email === email)) {
           setEmailError('Email già registrata');
-          return;
+          
         }
+        
         if (!nome.length) {
             setNomeError("Inserimento nome obbligatorio")
-            return;
+            
           }
         if (!cognome.length) {
             setCognomeError("Inserimento cognome obbligatorio")
-            return;
+            
           }
         if (!datanascita.length) {
           setDataDiNascitaError("Inserimento data obbligatorio")
-          return;
+          
         }
         if (!password.length) {
           setPasswordError("Inserimento password obbligatorio")
-          return;
+         
         }
-        if(!validateEmail.test(email.toLowerCase()) || !nome.length || !cognome.length){
+        if(!validateEmail.test(email.toLowerCase()) || !nome.length || !cognome.length || !datanascita.length || !password.length || utenti.some(u => u.email === email)){
           alert("Riprova ad effettuare l'iscrizione") 
           return null
         }

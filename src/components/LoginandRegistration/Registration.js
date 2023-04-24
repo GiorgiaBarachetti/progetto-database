@@ -86,8 +86,14 @@ function Registration() {
           }
         if (!datanascita.length) {
           setDataDiNascitaError("Inserimento data obbligatorio")
-          
         }
+        /*
+        const dataMassima = new Date( "31/12/2004" );
+        
+        if(datanascita<dataMassima){
+          setDataDiNascitaError(`hirhfcxkjbsjfdhjanni`)
+        }
+        */
         if (!password.length) {
           setPasswordError("Inserimento password obbligatorio")
          

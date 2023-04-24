@@ -9,6 +9,32 @@
       "email": "gio@example.com",
       "password": "gio"
     },
-    
+    {
+      "nome": "refds",
+      "cognome": "ewihjdn",
+      "datanascita": "2022-08-18",
+      "sesso": "M",
+      "email": "gio@hmail.com",
+      "password": "hijd",
+      "id": 2
+    },
+    {
+      "nome": "rhgfd",
+      "cognome": "yjhrtgfd",
+      "datanascita": "2007-06-15",
+      "sesso": "M",
+      "email": "gio@yhh.com",
+      "password": "ryewb",
+      "id": 3
+    },
+    {
+      "nome": "gio",
+      "cognome": "rewfds",
+      "datanascita": "2023-04-05",
+      "sesso": "M",
+      "email": "gio@ghsdh.trg",
+      "password": "friuj",
+      "id": 4
+    }
   ]
 }

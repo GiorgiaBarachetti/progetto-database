@@ -26,7 +26,7 @@ const Timbro = () => {
   
   const [showModal, setShowModal] = useState(false);
   const [dataOra, setDataOra] = useState("");
-  const [tipo, setTipo] = useState("entrata");
+  const [tipo, setTipo] = useState("Entrata");
   const navigate = useNavigate();
 
 
@@ -45,7 +45,7 @@ const Timbro = () => {
 
 const handleSave  = async () => {
   const body = JSON.stringify({ dataOra, tipo });
-    await fetch('http://localhost:8080/progetto_gruppo', {
+    await fetch('http://localhost:8080/progetto_gruppo/api/v1/timbro', {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
@@ -63,7 +63,7 @@ const handleReturnToLogin = () =>{
     setTimeout(function () {
     $('#myTable').DataTable({
       destroy: true,
-      ajax: 'http://localhost:8080/progetto_gruppo',
+      ajax: 'http://localhost:8080/progetto_gruppo/api/v1/timbro',
       columns: [
           { data: 'dataOra' },
           { data: 'tipo' }
@@ -142,8 +142,8 @@ ipotesi: il plugin json server funziona solo se
           value={tipo}
           onChange={(e) => setTipo(e.target.value)}
         >
-          <option value="entrata">Entrata</option>
-          <option value="uscita">Uscita</option>
+          <option value="Entrata">Entrata</option>
+          <option value="Uscita">Uscita</option>
         </Form.Control>
       </Form.Group>
 

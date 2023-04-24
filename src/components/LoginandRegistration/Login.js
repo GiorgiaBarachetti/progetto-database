@@ -11,7 +11,7 @@ const Login = () => {
   const [utenti, setUtenti] = useState([]);
 
   const fetchUsers = async () => {
-      const response = await fetch("http://localhost:3000/users")
+      const response = await fetch("http://localhost:8080/progetto_gruppo/api/v1/dipendente")
       const dataJson = await response.json()
       setUtenti(dataJson)
   }

@@ -17,7 +17,7 @@ function Registration() {
     const navigate = useNavigate('')
     const [nome, setNome] = useState('')
     const [cognome, setCognome] = useState('')
-    const [datanascita, setDataNascita] = useState('')
+    const [dataNascita, setDataNascita] = useState('')
     const [sesso, setSesso] = useState('M')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -29,7 +29,7 @@ function Registration() {
     const [passwordError, setPasswordError] = useState('')
 
     const fetchUsers = async () => {
-      const response = await fetch("http://localhost:3000/users")
+      const response = await fetch("http://localhost:8080/progetto_gruppo/api/v1/dipendente")
       const dataJson = await response.json()
       setUtenti(dataJson)
   }
@@ -84,7 +84,7 @@ function Registration() {
             setCognomeError("Inserimento cognome obbligatorio")
             
           }
-        if (!datanascita.length) {
+        if (!dataNascita.length) {
           setDataDiNascitaError("Inserimento data obbligatorio")
         }
         /*
@@ -98,13 +98,13 @@ function Registration() {
           setPasswordError("Inserimento password obbligatorio")
          
         }
-        if(!validateEmail.test(email.toLowerCase()) || !nome.length || !cognome.length || !datanascita.length || !password.length || utenti.some(u => u.email === email)){
+        if(!validateEmail.test(email.toLowerCase()) || !nome.length || !cognome.length || !dataNascita.length || !password.length || utenti.some(u => u.email === email)){
           alert("Riprova ad effettuare l'iscrizione") 
           return null
         }
 
-        const data = { nome, cognome, datanascita, sesso, email, password };
-        fetch('http://localhost:3000/users', {
+        const data = { nome, cognome, dataNascita, sesso, email, password };
+        fetch('http://localhost:8080/progetto_gruppo/api/v1/dipendente', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -143,7 +143,7 @@ function Registration() {
         label='(Data di nascita)'
         id="data" 
         type="date"
-        value={datanascita}
+        value={dataNascita}
         onChange={handleChangeData}
         error={dataNascitaError}
         />

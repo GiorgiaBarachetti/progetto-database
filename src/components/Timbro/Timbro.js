@@ -22,7 +22,7 @@ const Modal = ({ handleClose, show, children }) => {
   );
 };
 
-const Timbro = () => {
+const Timbro = (idUtente) => {
   
   const [showModal, setShowModal] = useState(false);
   const [dataOra, setDataOra] = useState("");
@@ -63,10 +63,11 @@ const handleReturnToLogin = () =>{
     setTimeout(function () {
     $('#myTable').DataTable({
       destroy: true,
-      ajax: 'http://localhost:8080/progetto_gruppo/api/v1/timbro',
+      ajax: `http://localhost:8080/progetto_gruppo/api/v1/timbro/idUtente=${idUtente}`,
       columns: [
           { data: 'dataOra' },
-          { data: 'tipo' }
+          { data: 'tipo' },
+          { data: 'iddipendente'}
       ],
     });
   });

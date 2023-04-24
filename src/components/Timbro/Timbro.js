@@ -45,7 +45,7 @@ const Timbro = () => {
 
 const handleSave  = async () => {
   const body = JSON.stringify({ dataOra, tipo });
-    await fetch('http://localhost:3000/utenti', {
+    await fetch('http://localhost:8080/progetto_gruppo', {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
@@ -63,7 +63,7 @@ const handleReturnToLogin = () =>{
     setTimeout(function () {
     $('#myTable').DataTable({
       destroy: true,
-      ajax: 'http://localhost:3000/utenti',
+      ajax: 'http://localhost:8080/progetto_gruppo',
       columns: [
           { data: 'dataOra' },
           { data: 'tipo' }
